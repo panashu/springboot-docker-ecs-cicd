@@ -31,7 +31,7 @@ The CloudFormation template requires the following parameters:
   - **User**: Your username on GitHub.
   - **Personal Access Token**: Token for the user specified above.
     (https://github.com/settings/tokens)
-	Access token prerequisites
+	Access token prerequisites : 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
 	
 	- For GitHub, the personal access token must have the following scopes.
 		- ***repo*** : Grants full control of private repositories.
@@ -52,11 +52,10 @@ repository is run through the pipeline and deployed to ECS. Open the
 pipeline. After the deploy step turns green, open the URL from **ServiceUrl**
 
 
-To test continuous deployment, make a change to src/index.php in the
-hello-world-php-simple-docker-app repository and push it to GitHub. CodePipeline detects
-the change, builds the new application, and deploys it to your cluster
-automatically. After the pipeline finishes deploying the revision, reload the
-page to see the changes made.
+To test continuous deployment, make a change to src/main/java/controller/DateDifferenceController.java in the
+date-difference-service of springboot-docker-ecs-cicd repository and push it to GitHub. CodePipeline detects
+the change, builds the new application, and deploys it to your cluster automatically. After the pipeline finishes deploying the revision, 
+reload the page to see the changes made.
 
 ### Cleaning up the example resources
 
@@ -87,8 +86,7 @@ CloudFormation template provided with this example.
 
 #### [Cluster](templates/ecs-cluster.yaml)
 
-  An ECS cluster optionally backed by an Auto Scaling group of EC2 instances
-  running the Amazon ECS-optimized AMI for the EC2 launch type.
+  An ECS cluster running the Amazon ECS-Fargate launch type.
 
 #### [Load Balancer](templates/load-balancer.yaml)
 
