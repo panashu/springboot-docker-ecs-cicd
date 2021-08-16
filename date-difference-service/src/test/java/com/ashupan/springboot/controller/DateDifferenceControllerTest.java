@@ -42,8 +42,10 @@ public class DateDifferenceControllerTest {
   @Test
   public void calculateDateDifferenceTest() throws Exception {
     LocalDate inputDate = LocalDate.of(2021, 07, 31);
+    LocalDate dateToday = LocalDate.now();
+    int duration = dateToday.getDayOfMonth();
     DateDifference dateDifference = new DateDifference();
-    dateDifference.setDateDifference(Long.valueOf(15));
+    dateDifference.setDateDifference(Long.valueOf(duration));
     when(dateDifferenceService.calculateDateDifference(inputDate)).thenReturn(dateDifference);
 
     mockMvc
@@ -52,6 +54,6 @@ public class DateDifferenceControllerTest {
                 .param("inputDate", String.valueOf(inputDate))
                 .contentType(MediaType.APPLICATION_JSON))
         .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.jsonPath("$.dateDifference", Is.is(15)));
+        .andExpect(MockMvcResultMatchers.jsonPath("$.dateDifference", Is.is(duration)));
   }
 }
