@@ -31,6 +31,12 @@ The CloudFormation template requires the following parameters:
   - **User**: Your username on GitHub.
   - **Personal Access Token**: Token for the user specified above.
     (https://github.com/settings/tokens)
+	Access token prerequisites
+	
+	- For GitHub, the personal access token must have the following scopes.
+		- ***repo*** : Grants full control of private repositories.
+		- ***repo:status*** : Grants read/write access to public and private repository commit statuses.
+		- ***admin:repo_hook*** : Grants full control of repository hooks. This scope is not required if your token has the repo scope.
 
 The CloudFormation stack provides the following output:
 
