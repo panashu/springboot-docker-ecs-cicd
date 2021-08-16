@@ -17,6 +17,9 @@ When creating this stack, it is opted to deploy the service onto AWS
 Fargate which allows us to run containers
 without managing clusters or services. 
 
+The shell script present under bin folder can be run by executing the below command.
+bash deploy.sh
+
 The CloudFormation template requires the following parameters:
 
 - Cluster Configuration
